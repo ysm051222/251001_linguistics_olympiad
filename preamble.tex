@@ -1,0 +1,122 @@
+% !TEX program = xelatex
+\usepackage[a4paper,top=23mm,bottom=24mm,left=21mm,right=21mm,headheight=15pt]{geometry}
+\usepackage{fontspec}
+\usepackage{kotex}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{tabularx}
+\usepackage{makecell}
+\usepackage[inline]{enumitem}
+\usepackage{setspace}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{calc}
+\usepackage{needspace}
+\usepackage{hyperref}
+
+\defaultfontfeatures{Ligatures=TeX}
+
+% Korean exam style: body and headings are set in a true Myeongjo/Batang-style face.
+% This avoids sans-serif fallback that can look like Gulim in PDF viewers.
+\setmainfont{Linux Libertine O}
+\setsansfont{Noto Sans}
+\setmonofont{DejaVu Sans Mono}
+\setmainhangulfont{NanumMyeongjo}
+\setsanshangulfont{NanumBarunGothic}
+
+% Linguistic forms and IPA.
+\newfontfamily\lingfont{Charis SIL}[Scale=MatchLowercase]
+\hypersetup{colorlinks=true, linkcolor=black, urlcolor=black, pdfborder={0 0 0}}
+\definecolor{RuleGray}{HTML}{4F4F4F}
+\definecolor{LightRuleGray}{HTML}{B7B7B7}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.36em}
+\setlength{\tabcolsep}{0.62em}
+\renewcommand{\arraystretch}{1.16}
+\raggedbottom
+\sloppy
+\emergencystretch=2em
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\footnotesize\bfseries 2025-2학기 특별 세션 1}
+\fancyhead[R]{\footnotesize\bfseries 미니 언어학 올림피아드}
+\fancyfoot[C]{\footnotesize \thepage\,/\,\pageref*{LastPage}}
+\renewcommand{\headrulewidth}{0.35pt}
+\renewcommand{\footrulewidth}{0pt}
+
+\fancypagestyle{plain}{%
+  \fancyhf{}%
+  \fancyfoot[C]{\footnotesize \thepage\,/\,\pageref*{LastPage}}%
+  \renewcommand{\headrulewidth}{0pt}%
+  \renewcommand{\footrulewidth}{0pt}%
+}
+
+\newcommand{\term}[1]{{\lingfont\bfseries #1}}
+\newcommand{\ipa}[1]{{\lingfont [#1]}}
+\newcommand{\blankko}[1]{(\textbf{#1})}
+\newcommand{\subq}[1]{\par\smallskip\noindent\textbf{(#1)}\quad}
+\newcommand{\credit}[1]{\nobreak\hspace{1em}\hfill{\bfseries - #1}\par}
+\newcommand{\warnnote}{\par\smallskip\noindent{\bfseries 참고}\quad\ignorespaces}
+
+\newcommand{\examtitle}{%
+  \thispagestyle{plain}%
+  \begin{center}
+    {\bfseries\Large 2025-2학기 특별 세션 1\par}
+    \vspace{0.25em}
+    {\bfseries\huge 미니 언어학 올림피아드\par}
+    \vspace{0.65em}
+    {\large 서울대학교 언어학회 \quad\textbar\quad 2025년 10월 1일\par}
+  \end{center}
+  \vspace{0.7em}
+
+  \noindent\rule{\textwidth}{0.4pt}
+}
+
+\newcommand{\answertitle}{%
+  \thispagestyle{plain}%
+  \begin{center}
+    {\bfseries\Large 2025-2학기 특별 세션 1\par}
+    \vspace{0.25em}
+    {\bfseries\huge 미니 언어학 올림피아드: 답안지\par}
+    \vspace{0.65em}
+    {\large 서울대학교 언어학회 \quad\textbar\quad 2025년 10월 1일\par}
+  \end{center}
+  \vspace{0.7em}
+  \noindent\rule{\textwidth}{0.8pt}
+}
+
+\newcommand{\problem}[1]{%
+  \par\vspace{1.2em}\needspace{7\baselineskip}%
+  \noindent{\bfseries\Large #1}\par
+  \vspace{-0.1em}\noindent\textcolor{RuleGray}{\rule{\textwidth}{0.5pt}}\par\vspace{0.45em}
+}
+
+\newcommand{\answersection}[1]{%
+  \par\vspace{1.1em}\needspace{6\baselineskip}%
+  \noindent{\bfseries\Large #1}\par
+  \vspace{-0.1em}\noindent\textcolor{RuleGray}{\rule{\textwidth}{0.5pt}}\par\vspace{0.45em}
+}
+
+\newcommand{\exampleblock}[4]{%
+  \begin{minipage}[t]{0.47\textwidth}
+  \raggedright\footnotesize
+  \term{#1}\par\vspace{0.05em}
+  {\lingfont #2}\par\vspace{0.05em}
+  {\scriptsize #3}\par\vspace{0.05em}
+  #4
+  \end{minipage}%
+}
+
+\newcommand{\answerline}[2]{\textbf{#1}\quad #2\\}
+
+% Deseret
+\newfontfamily\deseretfont{Noto Sans Deseret}[Scale=1.22]
+
+\newcommand{\des}[1]{{\deseretfont #1}}
+\newcommand{\desword}[2]{%
+  \makebox[2.7em][r]{(#1).}\,\des{#2}%
+}
